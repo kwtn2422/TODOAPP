@@ -1,9 +1,11 @@
 import React from "react";
 
+export type statusType = "Done" | "Progress" | "Incomplete";
+
 export type TodoCardProps = {
   title: string;
   description: string;
-  status: "Done" | "Progress" | "Incomplete";
+  status: statusType;
 };
 
 const statusClass = {

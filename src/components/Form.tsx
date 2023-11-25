@@ -22,7 +22,7 @@ const Form: React.FC<FormProps> = ({ onClick }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex pt-2 w-full">
+    <form onSubmit={handleSubmit} className="flex pb-2 w-full">
       <div className="flex flex-col basis-5/6">
         <div className="flex flex-col">
           <input
