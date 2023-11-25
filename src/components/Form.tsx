@@ -11,7 +11,7 @@ const Form: React.FC<FormProps> = ({ onClick }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onClick({ title: title, description: description, status: "Incomplete" });
+    onClick({ title: title, description: description, status: 2 });
     setTitle("");
     setDiscription("");
   };

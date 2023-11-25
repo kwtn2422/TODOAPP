@@ -4,7 +4,10 @@ import TodoList from "@/components/TodoList";
 import React, { useState } from "react";
 
 const App = () => {
-  const [state, setState] = useState<statusType>();
+  const [clickCount, setClickCount] = useState(0);
+  const clickCounter = () => {
+    setClickCount(clickCount + 1);
+  };
 
   const [list, setList] = useState<TodoCardProps[]>([]);
   const addList = (newTodo: TodoCardProps) => {
