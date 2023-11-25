@@ -1,24 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
+import { TodoCardProps } from "./TodoCard";
 
-const Form = () => {
+type FormProps = {
+  onClick: (newTodo: TodoCardProps) => void;
+};
+
+const Form: React.FC<FormProps> = ({ onClick }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDiscription] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const newTodo: TodoCardProps = {
+      title: title,
+      description: description,
+      status: "Incomplete",
+    };
+    onClick(newTodo);
+    setTitle("");
+    setDiscription("");
+  };
+
   return (
-    <div className="flex pt-2 w-full">
+    <form onSubmit={handleSubmit} className="flex pt-2 w-full">
       <div className="flex flex-col basis-5/6">
-        <div className="flex w-full">
-          <div className="flex flex-col basis-1/6 ">
-            <p className="  w-full text-right">title :</p>
-            <p className=" w-full text-right">desc :</p>
-          </div>
-          <div className="flex flex-col basis-5/6">
-            <input className="shadow-md border border-gray-200 rounded "></input>
-            <input className="shadow-md border border-gray-200 rounded "></input>
-          </div>
+        <div className="flex flex-col">
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="title"
+            className="shadow-md border border-gray-200 rounded "
+          />
+          <input
+            type="text"
+            value={description}
+            onChange={(e) => setDiscription(e.target.value)}
+            placeholder="description"
+            className="shadow-md border border-gray-200 rounded "
+          />
         </div>
       </div>
-      <button className="rounded bg-violet-300 basis-1/6 hover:bg-opacity-70">
+      <button
+        type="submit"
+        className="rounded bg-violet-300 basis-1/6 hover:bg-opacity-70"
+      >
         +
       </button>
-    </div>
+    </form>
   );
 };
 
