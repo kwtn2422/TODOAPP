@@ -11,12 +11,7 @@ const Form: React.FC<FormProps> = ({ onClick }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newTodo: TodoCardProps = {
-      title: title,
-      description: description,
-      status: "Incomplete",
-    };
-    onClick(newTodo);
+    onClick({ title: title, description: description, status: "Incomplete" });
     setTitle("");
     setDiscription("");
   };

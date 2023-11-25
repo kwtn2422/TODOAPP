@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col w-80">
+      <div className="flex flex-col w-80 items-center">
         <p className=" text-3xl m-2">Todo Apps</p>
         <Form onClick={addList}></Form>
         <TodoList todoListArray={list}></TodoList>

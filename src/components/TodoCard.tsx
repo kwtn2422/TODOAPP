@@ -14,11 +14,7 @@ const statusClass = {
   Incomplete: { bgColor: "bg-gray-200", statement: "未実施" },
 };
 
-const TodoCard: React.FC<TodoCardProps> = ({
-  title = "",
-  description = "",
-  status = "Incomplete",
-}) => {
+const TodoCard: React.FC<TodoCardProps> = ({ title, description, status }) => {
   return (
     <div className="flex shadow-md rounded w-full mb-1">
       <div
