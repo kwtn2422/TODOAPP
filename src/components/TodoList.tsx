@@ -6,6 +6,7 @@ type TodoListProps = {
 };
 
 const TodoList: React.FC<TodoListProps> = ({ todoListArray }) => {
+  todoListArray;
   return todoListArray.map((card: TodoCardProps, i) => {
     return <TodoCard key={i} {...card}></TodoCard>;
   });
