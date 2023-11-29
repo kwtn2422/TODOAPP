@@ -20,8 +20,18 @@ const Form: React.FC<FormProps> = ({ onClick }) => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.ctrlKey && e.key === "Enter") {
+      handleSubmit(e);
+    }
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="flex pb-2 w-full">
+    <form
+      onSubmit={handleSubmit}
+      onKeyDown={handleKeyDown}
+      className="flex pb-2 w-full"
+    >
       <div className="flex flex-col basis-5/6">
         <div className="flex flex-col">
           <input
@@ -31,12 +41,12 @@ const Form: React.FC<FormProps> = ({ onClick }) => {
             placeholder="title"
             className="shadow-md border border-gray-200 rounded "
           />
-          <input
-            type="text"
+          <textarea
             value={description}
             onChange={(e) => setDiscription(e.target.value)}
             placeholder="description"
-            className="shadow-md border border-gray-200 rounded "
+            className="shadow-md border border-gray-200 rounded break-words"
+            rows={2}
           />
         </div>
       </div>

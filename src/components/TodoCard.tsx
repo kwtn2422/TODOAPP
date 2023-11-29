@@ -27,18 +27,18 @@ const TodoCard: React.FC<TodoCardProps> = ({
   };
 
   return (
-    <div className="flex shadow-md rounded w-full mb-1 h-25">
+    <div className="flex shadow-md rounded w-full mb-1 h-28">
       <button
-        className={`basis-1/6 flex items-center rounded-l ${statusClass[status].bgColor} h-full`}
+        className={`basis-1/6 flex items-center rounded-l ${statusClass[status].bgColor}`}
         onClick={handleStatusChange}
       >
         {statusClass[status].statement}
       </button>
       <div className="basis-5/6 flex flex-col">
-        <p className="basis-1/3 bg-blue-200 flex items-center rounded-tr border-b border-gray-300 h-full overflow-hidden">
+        <p className="basis-1/3 bg-blue-200 flex items-center rounded-tr border-b border-gray-300">
           {title}
         </p>
-        <p className="basis-2/3 bg-blue-100 flex rounded-br h-full overflow-y-auto pr-2">
+        <p className="basis-2/3 bg-blue-100 flex rounded-br pr-2">
           <span className="break-words">{description}</span>
         </p>
       </div>
